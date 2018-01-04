@@ -1,0 +1,5 @@
+class Categories < ApplicationController
+  
+  
+  
+end

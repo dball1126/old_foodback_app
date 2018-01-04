@@ -39,3 +39,7 @@ $ rails server
 
 For more information, see the
 [*Ruby on Rails Tutorial* book](http://www.railstutorial.org/book).
+
+
+
+Chapter 7 START ADD GIT BEFORE WE START THIS CHAPT  STart  No git   No Tests   

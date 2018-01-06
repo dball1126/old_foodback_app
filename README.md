@@ -42,4 +42,7 @@ For more information, see the
 
 
 
-Chapter 7 START ADD GIT BEFORE WE START THIS CHAPT  STart  No git   No Tests   
+Chapter 7 START ADD GIT BEFORE WE START THIS CHAPT  STart  No git   No Tests 
+
+
+start 7.36 look above too

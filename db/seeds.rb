@@ -30,14 +30,14 @@ Business.create!(name:  "Example Business",
 
 99.times do |nn|
   name     = Faker::Name.name
-  city     = "Brooklyn"
-  state    = "NY"
-  zipcode  = Faker::Number.zipcode
-  address1 = Faker::Address.address1
-  address2 = Faker::Address.address2
-  phone    = Faker::PhoneNumber.phone
+  city     = Faker::Address.city
+  state    = Faker::Address.state
+  zipcode  = Faker::Number.zip_code
+  address1 = Faker::Address.street_name
+  address2 = Faker::Address.street_name
+  phone    = Faker::PhoneNumber.phone_number
   email    = "example-#{nn+1}@railstutorial2.org"
-  description = "Meat and cheese any bread products"
+  description = Faker::Food.description
   
   Business.create!(name:  name,
                    city:  city,

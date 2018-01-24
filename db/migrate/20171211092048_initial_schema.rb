@@ -8,6 +8,7 @@ class InitialSchema < ActiveRecord::Migration[5.1]
       t.string :address2
       t.string :city
       t.string :state
+      t.string :zipcode
       t.string :phone
       t.string :email
     end

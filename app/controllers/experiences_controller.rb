@@ -1,3 +1,3 @@
-class ExperienceController < ApplicationController
+class ExperiencesController < ApplicationController
   
 end

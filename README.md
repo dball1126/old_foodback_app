@@ -49,4 +49,9 @@ start chapter 10.3 listing start
 watch out for copy and paste
 
 
-up to chapter 12.8 listing START
+up to chapter START 13  BUT WAIT Maybe just continue from the website for foodback
+
+
+Video 11 START foodback 
+
+NOTE businesses were not being saved.  I removed belongs_to :Businesses from businesses model and now it saves.

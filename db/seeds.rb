@@ -37,7 +37,7 @@ Business.create!(name:  "Example Business",
   address2 = Faker::Address.street_name
   phone    = Faker::PhoneNumber.phone_number
   email    = "example-#{nn+1}@railstutorial2.org"
-  description = Faker::String.random(3..200)
+  description = Faker::Company.catch_phrase
   
   
   Business.create!(name:        name,

@@ -37,7 +37,7 @@ Business.create!(name:  "Example Business",
   address2 = Faker::Address.street_name
   phone    = Faker::PhoneNumber.phone_number
   email    = "example-#{nn+1}@railstutorial2.org"
-  description = Faker::Food.description
+  
   
   Business.create!(name:  name,
                    city:  city,
@@ -46,6 +46,5 @@ Business.create!(name:  "Example Business",
                    address1:    address1,
                    address2:    address2,
                    phone:       phone,
-                   email:       email,
-                   description: description)
+                   email:       email )
 end

@@ -32,7 +32,7 @@ Business.create!(name:  "Example Business",
   name     = Faker::Name.name
   city     = Faker::Address.city
   state    = Faker::Address.state
-  zipcode  = Faker::Number.zip_code
+  zipcode  = Faker::Address.zip_code
   address1 = Faker::Address.street_name
   address2 = Faker::Address.street_name
   phone    = Faker::PhoneNumber.phone_number

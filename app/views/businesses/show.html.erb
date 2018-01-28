@@ -16,9 +16,18 @@
         <br><%= @business.email %></br>
       </br></p>
     </section>
-    <div class="description">
-      <%= @business.description %>
-      </div>
+    
     </div>
   </aside>
+  <div class="main-buttons"></div>
+  <div>
+  <%= link_to "Your recent experience", new_business_path, class: "btn btn-lg btn-primary" %>
+  </div>
+  <div class="clearfix padding5">
+    <h4>Number of experiences: </h4>
+  </div>
+  <div class="clearfix padding30">
+      <h3>Business Description</h3>
+      <p><%= @business.description %> XYZ Consulting is a new company that provides expertise in search marketing solutions for business on a worldwide basis, including website promotion, online advertising and search engine optimization techniques to improve its clients' positioning in the search engines. We will cater to the higher education market, including colleges, universities and professional educational institutions.</p>
+      </div>
 </div>

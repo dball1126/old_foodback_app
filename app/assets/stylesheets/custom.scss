@@ -32,7 +32,7 @@ textarea {
 /*  Header   */
 
 header.navbar {
-  background-color: black;
+  background-color: #F8F9F9;
 }
 
 header ul {
@@ -40,10 +40,10 @@ header ul {
 text-align: center;
 word-spacing: 5px;
 list-style: none;
-background-color: black;
+background-color: #F8F9F9;
 margin-left: -60px;
    li{
-      background-color: black;
+      background-color: #F8F9F9;
       margin-top: -70px;
       margin:0 auto; 
       display:inline; 
@@ -65,7 +65,7 @@ margin-left: -60px;
  
  #links  {
   
-  color: white;
+  color: black;
   &:hover {
     color: red;
   }
@@ -84,6 +84,21 @@ margin-left: -60px;
     text-decoration: none;
   }
 }
+
+#links2 {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: black;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  &:hover {
+    color: red;
+    text-decoration: none;
+  }
+}
+
 
 /* footer */
 
@@ -368,4 +383,11 @@ h2 {
 p {
   font-size: 1.1em;
   line-height: 1.7em;
+}
+
+
+.description {
+  padding-top: 20px;
+  font-size: 1.5em;
+  color: $gray-light;
 }

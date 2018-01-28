@@ -55,3 +55,5 @@ up to chapter START 13  BUT WAIT Maybe just continue from the website for foodba
 Video 11 START foodback 
 
 NOTE businesses were not being saved.  I removed belongs_to :Businesses from businesses model and now it saves.
+
+Just updated some CSSS, im ready to continue the video you can commit if you want.

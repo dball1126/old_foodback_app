@@ -57,3 +57,10 @@ Video 11 START foodback
 NOTE businesses were not being saved.  I removed belongs_to :Businesses from businesses model and now it saves.
 
 Just updated some CSSS, im ready to continue the video you can commit if you want.
+
+
+video 15 1:35
+
+video 15 1:28 rake db:migrate complete
+
+vid 18 3 min in

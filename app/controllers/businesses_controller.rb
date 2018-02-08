@@ -3,7 +3,7 @@ class BusinessesController < ApplicationController
   
     
   def index
-    @businesses = Business.paginate(page: params[:page])
+    @businesses = Business.paginate(page: params[:business])
   end
 
   def new
@@ -12,26 +12,26 @@ class BusinessesController < ApplicationController
 
   def create
     @business = Business.new(business_params)
-    
     if @business.save
       flash[:success] = "Business saved!"
       redirect_to @business
     else
       flash[:alert] = "Business not saved!"
-      redirect_to root_url
+      render 'new'
     end
+    
   end
 
   def show
     @business = Business.find(params[:id])
+    @experiences = Experience.where(business_id: @business)
   end
 
   private
   
   def business_params
-    params.require(:business).permit(:name, :description, :address1,
-                                      :address2, :city, :state, :zipcode,
-                                      :phone, :email)
+    params.require(:business).permit(:name, :city, :state, :zipcode, :address1,
+                                     :address2, :phone, :email, :description)
   end
   
   def logged_in_user

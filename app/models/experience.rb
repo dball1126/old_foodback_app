@@ -1,5 +1,6 @@
-class Business < ActiveRecord::Base
+class Experience < ActiveRecord::Base
 
+    belongs_to :user
     belongs_to :business
     
 end

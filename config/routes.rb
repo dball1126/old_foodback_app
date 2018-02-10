@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :businesses do
     resources :experiences, except: [:index, :show]
+    collection do
+      get 'search'
+    end
   end
 
   

@@ -10,7 +10,9 @@
 
   <%= f.label :description %>
   <%= f.text_area :description, class: 'form-control' %>
-
+  
+  <%= f.select :category_id, Category.all.map{ |f| [f.name, f.id] } %>
+  
   <%= f.label :address1 %>
   <%= f.text_field :address1, class: 'form-control' %>
   

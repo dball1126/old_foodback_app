@@ -27,11 +27,15 @@ class BusinessesController < ApplicationController
     @experiences = Experience.where(business_id: @business)
   end
 
+  def search
+    @businesses = Business.search(params)
+  end
+
   private
   
   def business_params
     params.require(:business).permit(:name, :city, :state, :zipcode, :address1,
-                                     :address2, :phone, :email, :description)
+                                     :address2, :category_id, :phone, :email, :description)
   end
   
   def logged_in_user

@@ -8,8 +8,17 @@
     <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
     sample application.
   </h2>
-  
-  <div class="main-buttons"></div>
+  <div class ="span4">
+    <div class="search-form">
+    <p>Find your business</p>
+    <%= form_tag search_businesses_path, method: :get do |f| %>
+      <%= text_field_tag :search, nil, placeholder: "type business name." %>
+      <%= text_field_tag :location, nil, placeholder: "denver, miami, etc." %>
+      <%= select_tag :business, options_for_select(Business.all.map{ |c| [c.name, c.id]}) %>
+      <%= submit_tag 'Search', class: "btn span2 btn-realto-form btn-large" %>
+    <% end %>
+    </div>
+  </div>
   <div>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
   <%= link_to "Write about an Experience", new_business_path, class: "btn btn-lg btn-primary" %>

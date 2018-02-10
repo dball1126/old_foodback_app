@@ -48,6 +48,7 @@ Business.create!(name:  "Example Business",
                    zipcode:     zipcode,
                    address1:    address1,
                    address2:    address2,
+                   category:    category,
                    phone:       phone,
                    email:       email,
                    description: description)

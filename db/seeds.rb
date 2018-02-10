@@ -24,7 +24,6 @@ Business.create!(name:  "Example Business",
              zipcode: "11243",
              address1: "900 7th Ave",
              address2: "800 6th Ave",
-             category: "Italian",
              phone: "7828899485",
              email: "example@railstutorial1.org",
              description: "We do Burgers and Fries")
@@ -36,7 +35,6 @@ Business.create!(name:  "Example Business",
   zipcode  = Faker::Address.zip_code
   address1 = Faker::Address.street_name
   address2 = Faker::Address.street_name
-  category = Faker::Food.dish
   phone    = Faker::PhoneNumber.phone_number
   email    = "example-#{nn+1}@railstutorial2.org"
   description = Faker::Company.catch_phrase
@@ -48,8 +46,14 @@ Business.create!(name:  "Example Business",
                    zipcode:     zipcode,
                    address1:    address1,
                    address2:    address2,
-                   category:    category,
                    phone:       phone,
                    email:       email,
                    description: description)
+end
+
+Category.create!(name: "Italian")
+
+99.times do |i|
+  name = Faker::Food.dish
+  Category.create!(name: name)
 end

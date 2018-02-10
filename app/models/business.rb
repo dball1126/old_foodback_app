@@ -1,6 +1,6 @@
 class Business < ActiveRecord::Base
   has_many   :experiences
-  belongs_to :category
+  
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :city

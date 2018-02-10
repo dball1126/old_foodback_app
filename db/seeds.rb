@@ -54,6 +54,8 @@ end
 Category.create!(name: "Italian")
 
 99.times do |i|
-  name = Faker::Food.dish
+  
+  name = Faker::Name.name
+  
   Category.create!(name: name)
 end

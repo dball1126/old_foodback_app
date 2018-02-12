@@ -14,7 +14,7 @@
     <%= form_tag search_businesses_path, method: :get do |f| %>
       <%= text_field_tag :search, nil, placeholder: "type business name." %>
       <%= text_field_tag :location, nil, placeholder: "denver, miami, etc." %>
-      <%= select_tag :business, options_for_select(Business.all.map{ |c| [c.name, c.id]}) %>
+      <%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id]}) %>
       <%= submit_tag 'Search', class: "btn span2 btn-realto-form btn-large" %>
     <% end %>
     </div>

@@ -1,11 +1,10 @@
 class Business < ActiveRecord::Base
   has_many   :experiences
-  belongs_to  :category
+  belongs_to :category
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :city
   validates_presence_of :state
-  validates_presence_of :address1
   
   geocoded_by :full_address
   after_validation :geocode

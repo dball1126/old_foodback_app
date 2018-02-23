@@ -66,4 +66,4 @@ video 15 1:28 rake db:migrate complete
 vid 18 3 min in
 
 
-up to 21-22   search bar
+up to video 25

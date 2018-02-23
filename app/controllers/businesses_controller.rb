@@ -35,7 +35,7 @@ class BusinessesController < ApplicationController
   
   def business_params
     params.require(:business).permit(:name, :city, :state, :zipcode,                                      :address1, :address2, :category_id, 
-                                     :phone, :email, :description)
+                                     :phone, :email, :description, :image)
   end
   
   def logged_in_user

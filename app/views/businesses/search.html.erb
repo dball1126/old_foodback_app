@@ -10,7 +10,11 @@
                 <div class="holder">
                   <a class="overlay" href="#" title="property title">
                     <span class="more"></span>
-                    <img alt="image" class="media-object" src="http://placehold.it/370x210"
+                    <% if business.image_url.present? %>
+                      <%= link_to image_tag(business.image_url.to_s), business %>
+                    <% else %>
+                      <%= link_to image_tag("http://placehold.it/370x210"), business %>
+                    <% end %>
                   </a>
     <span class="prop-tag">For Sale</span>
     <div class="prop-info">

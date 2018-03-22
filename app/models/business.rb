@@ -1,5 +1,6 @@
 class Business < ActiveRecord::Base
   has_many   :experiences
+  has_many   :reviews
   belongs_to :category, class_name: "Person", optional: true
   validates_presence_of :name
   validates_presence_of :description

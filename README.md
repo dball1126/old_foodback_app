@@ -42,28 +42,16 @@ For more information, see the
 
 
 
-Chapter 7 START ADD GIT BEFORE WE START THIS CHAPT  STart  No git   No Tests 
+up to chapter 13   need to finish listing 13.41 error messages...
+
+up to 13.58   keep an eye on microposts = reviews
+
+up to listing 13.59 
 
 
-start chapter 10.3 listing start
-watch out for copy and paste
+up to listing 13.62       start making data in the website and try to pull businesses and reviews on a feed...maybe a new feed with a new page. 
 
 
-up to chapter START 13  BUT WAIT Maybe just continue from the website for foodback
 
 
-Video 11 START foodback 
-
-NOTE businesses were not being saved.  I removed belongs_to :Businesses from businesses model and now it saves.
-
-Just updated some CSSS, im ready to continue the video you can commit if you want.
-
-
-video 15 1:35
-
-video 15 1:28 rake db:migrate complete
-
-vid 18 3 min in
-
-
-up to 21-22   search bar
+up to 13.69

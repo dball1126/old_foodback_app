@@ -6,7 +6,7 @@ User.create!(name:  "Example User",
              activated: true,
              activated_at: Time.zone.now)
 
-99.times do |n|
+6.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@railstutorial.org"
   password = "password"
@@ -21,6 +21,8 @@ end
 Business.create!(name:  "Example Business",
              city:  "Brooklyn",
              state: "NY",
+             
+             
              zipcode: "11243",
              address1: "900 7th Ave",
              address2: "800 6th Ave",
@@ -28,7 +30,7 @@ Business.create!(name:  "Example Business",
              email: "example@railstutorial1.org",
              description: "We do Burgers and Fries")
 
-99.times do |nn|
+6.times do |nn|
   name     = Faker::Name.name
   city     = Faker::Address.city
   state    = Faker::Address.state
@@ -53,9 +55,15 @@ end
 
 Category.create!(name: "Italian")
 
-99.times do |i|
+6.times do |i|
   
   name = Faker::Name.name
   
   Category.create!(name: name)
+end
+
+users = User.order(:created_at).take(6)
+6.times do
+  content = Faker::Lorem.sentence(5)
+  users.each { |user| user.reviews.create!(content: content) }
 end

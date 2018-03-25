@@ -54,4 +54,10 @@ up to listing 13.62       start making data in the website and try to pull busin
 
 
 
-up to 13.69
+up to 14.5 14.6 
+
+14.10
+
+up to 14.16 listing
+
+up to 14.31

@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
-  before_action :set_businessz
+  #before_action :set_businessz
   
   def new
     @review = Review.new(business: @business)
@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
   def create
     @review = current_user.reviews.build(review_params)   
     @review.business = @business
-    @business.save
+    #@business.save
     @review.save
     if @review.save
     flash[:success] = "Review created!"
@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
     end
     
     def set_businessz
-    @business = Business.find(params[:business_id])
-  end
+      @business = Business.find(params[:business_id])
+    end
     
 end

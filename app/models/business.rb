@@ -6,8 +6,8 @@ class Business < ActiveRecord::Base
   validates_presence_of :description
   validates_presence_of :city
   validates_presence_of :state
-  belongs_to :followerz, class_name: "User"
-  belongs_to :followedz, class_name: "Business"
+  belongs_to :followerz, class_name: "User", optional: true
+  belongs_to :followedz, class_name: "Business", optional: true
   
   has_many :active_relationshipzs, class_name: "Relationshipz",
                                    foreign_key: "followerz_id",

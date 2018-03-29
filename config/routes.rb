@@ -20,6 +20,12 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :businesses do
+    member do
+      get :followingz, :followerz
+    end
+  end
+  
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :businesses do
@@ -32,5 +38,6 @@ Rails.application.routes.draw do
 
   resources :reviews,         only:   [:create, :destroy]
   resources :relationships,   only:   [:create, :destroy]
+  resources :relationshipzs,  only:   [:create, :destroy]
   
 end

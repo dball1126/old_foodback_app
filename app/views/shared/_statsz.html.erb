@@ -1,0 +1,15 @@
+<% @business ||= current_business %>
+<div class="statsz">
+  <a href="<%= followingz_business_path(@business) %>">
+    <strong id="followingz" class="statz">
+      <%= @business.followingz.count %>
+    </strong>
+    followingz
+  </a>
+  <a href="<%= followers_user_path(@business) %>">
+    <strong id="followerzs" class="statz">
+      <%= @business.followerzs.count %>
+    </strong>
+    followersz
+  </a>
+</div> 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322213726) do
+ActiveRecord::Schema.define(version: 20180326041630) do
 
   create_table "businesses", force: :cascade do |t|
     t.string "name"
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 20180322213726) do
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
     t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
+  end
+
+  create_table "relationshipzs", force: :cascade do |t|
+    t.integer "followerz_id"
+    t.integer "followedz_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followedz_id"], name: "index_relationshipzs_on_followedz_id"
+    t.index ["followerz_id", "followedz_id"], name: "index_relationshipzs_on_followerz_id_and_followedz_id", unique: true
+    t.index ["followerz_id"], name: "index_relationshipzs_on_followerz_id"
   end
 
   create_table "reviews", force: :cascade do |t|

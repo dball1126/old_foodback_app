@@ -24,7 +24,12 @@ class BusinessesController < ApplicationController
 
   def show
     @business = Business.find(params[:id])
+    #redirect_to root_url and return unless @user.activated?
+    
     @experiences = Experience.where(business_id: @business)
+    @reviews = Review.where(business_id: @business)
+    #@experiences = @user.experiences.paginate(page: params[:page])
+    #@reviews = @user.reviews.paginate(page: params[:page])
   end
 
   def search

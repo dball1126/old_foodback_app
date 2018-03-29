@@ -11,6 +11,17 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   
+  has_many :active_relationshipzs, class_name: "Relationshipz",
+                                   foreign_key: "followerz_id",
+                                   dependent:   :destroy
+  has_many :followingz, through: :active_relationshipzs, source: :followedz
+  
+  has_many :passive_relationshipzs, class_name:  "Relationshipz",
+                                   foreign_key: "followedz_id",
+                                   dependent:   :destroy
+  has_many :followersz, through: :passive_relationshipzs, source: :followerz
+  
+  
   before_save   :downcase_email
   before_create :create_activation_digest
   validates :name,  presence: true, length: { maximum: 50 }
@@ -99,6 +110,25 @@ class User < ApplicationRecord
   def following?(other_user)
     following.include?(other_user)
   end
+  
+  
+  
+  # Follows a Business.
+  def followz(other_business)
+    followingz << other_business
+  end
+
+  # Unfollows a business.
+  def unfollowz(other_business)
+    followingz.delete(other_business)
+  end
+
+  # Returns true if the current user is following the other user.
+  def followingz?(other_business)
+    followingz.include?(other_business)
+  end
+  
+  
   
   private
 

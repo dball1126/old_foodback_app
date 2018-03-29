@@ -6,11 +6,43 @@ class Business < ActiveRecord::Base
   validates_presence_of :description
   validates_presence_of :city
   validates_presence_of :state
+  belongs_to :followerz, class_name: "User"
+  belongs_to :followedz, class_name: "Business"
+  
+  has_many :active_relationshipzs, class_name: "Relationshipz",
+                                   foreign_key: "followerz_id",
+                                   dependent:   :destroy
+  has_many :followingz, through: :active_relationshipzs, source: :followedz
+  
+  has_many :passive_relationshipzs, class_name:  "Relationshipz",
+                                   foreign_key: "followedz_id",
+                                   dependent:   :destroy
+  has_many :followerzs, through: :passive_relationshipzs, source: :followerz
+  
   
   geocoded_by :full_address
   after_validation :geocode
   
   mount_uploader :image, ImageUploader
+  
+  
+  
+  # Follows a Business.
+  def followz(other_business)
+    followingz << other_business
+  end
+
+  # Unfollows a business.
+  def unfollowz(other_business)
+    followingz.delete(other_business)
+  end
+
+  # Returns true if the current user is following the other user.
+  def followingz?(other_business)
+    followingz.include?(other_business)
+  end
+  
+  
   
   def full_address
     [address1, address2, city, state, zipcode].join(', ')

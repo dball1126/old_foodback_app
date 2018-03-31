@@ -2,6 +2,9 @@ class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
   has_many :experiences
   has_many :reviews, dependent: :destroy
+  belongs_to :follower, class_name: "User", optional: true
+  belongs_to :followed, class_name: "User", optional: true
+  
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -99,6 +102,7 @@ class User < ApplicationRecord
   # Follows a user.
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
+    #following << other_user
   end
 
   # Unfollows a user.
@@ -106,7 +110,8 @@ class User < ApplicationRecord
     following.delete(other_user)
   end
 
-  # Returns true if the current user is following the other user.
+  # Returns true if the 
+ # user is following the other user.
   def following?(other_user)
     following.include?(other_user)
   end
@@ -142,5 +147,4 @@ class User < ApplicationRecord
       self.activation_token  = User.new_token
       self.activation_digest = User.digest(activation_token)
     end
-  
 end

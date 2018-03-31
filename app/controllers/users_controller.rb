@@ -8,8 +8,10 @@ class UsersController < ApplicationController
     @users = User.where(activated: true).paginate(page: params[:page])
   end
   
-  def new
-    @user = User.new
+  def show
+    @user = User.find(params[:id])
+    @reviews = @user.reviews.paginate(page: params[:page])
+    redirect_to root_url and return unless @user.activated?
   end
   
   def create
@@ -22,11 +24,9 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
-
-  def show
-    @user = User.find(params[:id])
-    redirect_to root_url and return unless @user.activated?
-    @reviews = @user.reviews.paginate(page: params[:page])
+  
+  def new
+    @user = User.new
   end
 
   
@@ -34,6 +34,7 @@ class UsersController < ApplicationController
   
 
   def edit
+    @user = User.find(params[:id])
   end
 
   def update

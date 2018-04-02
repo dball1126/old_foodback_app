@@ -97,6 +97,12 @@ class User < ApplicationRecord
                      WHERE  follower_id = :user_id"
     Review.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
+    
+    #followingz_ids = "SELECT followedz_id FROM relationshipsz
+     #                WHERE  followerz_id = :business_id"
+   Experience.where("business_id IN (?) OR business_id = ?", followingz_ids, id)
+   #Experience.where("business_id IN (#{followingz_ids})
+    #                 OR user_id = :user_id", user_id: id)                 
   end
   
   # Follows a user.
@@ -120,7 +126,8 @@ class User < ApplicationRecord
   
   # Follows a Business.
   def followz(other_business)
-    followingz << other_business
+    #followingz << other_business
+    active_relationshipzs.create(followedz_id: other_business.id)
   end
 
   # Unfollows a business.

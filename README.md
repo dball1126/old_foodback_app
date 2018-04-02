@@ -63,3 +63,9 @@ up to 14.16 listing
 up to 14.31
 
 finished 14
+
+
+trying to add timestamps to experiences
+
+
+working on timestamps for _experiences.erb still but now trying to still fox following users and businesses at the same time look at users controller business controller relationships and relationshipz

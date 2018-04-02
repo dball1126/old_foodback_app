@@ -6,7 +6,13 @@ class UsersController < ApplicationController
   
   def index
     @users = User.where(activated: true).paginate(page: params[:page])
+    @users = User.paginate(page: params[:user])
   end
+  
+    def new
+      @user = User.new
+    end
+
   
   def show
     @user = User.find(params[:id])
@@ -25,11 +31,21 @@ class UsersController < ApplicationController
     end
   end
   
-  def new
-    @user = User.new
+
+   # Follows a user.
+  def follow(other_user)
+    following << other_user
   end
 
-  
+  # Unfollows a user.
+  def unfollow(other_user)
+    following.delete(other_user)
+  end
+
+  # Returns true if the current user is following the other user.
+  def following?(other_user)
+    following.include?(other_user)
+  end
 
   
 
@@ -74,14 +90,14 @@ class UsersController < ApplicationController
                                    :password_confirmation)
     end
     
-    # Confirms a logged-in user.
- #   def logged_in_user
-  #    unless logged_in?
-   #   store_location
-    #    flash[:danger] = "Please log in."
-     #   redirect_to login_url
-#      end
- #   end
+   #  Confirms a logged-in user.
+    def logged_in_user
+      unless logged_in?
+      store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
     
     # Confirms the correct user.
     def correct_user

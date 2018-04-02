@@ -1,0 +1,9 @@
+<li id="experience-<%= experience.id %>">
+  <%= link_to gravatar_for(experience.user, size: 50), experience.user %>
+  <span class="user"><%= link_to experience.user.name, experience.user %></span>
+  <span class="content">
+    <%= experience.comment %>
+    
+  </span>
+  
+</li>

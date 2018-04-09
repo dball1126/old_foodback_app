@@ -14,8 +14,7 @@
       <%= render 'shared/statsz' %>
     </section>
     
-    <%= render 'followz_form' %>
-    
+    <%= render 'followz_form' if logged_in? %>
       <h1>
         <% if @business.image_url.present? %>
         <br><%= image_tag @business.image_url %></br>

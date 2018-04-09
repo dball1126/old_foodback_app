@@ -69,9 +69,9 @@ users = User.order(:created_at).take(6)
 end
 
 # Following relationships
-users = User.all
-user  = users.first
-following = users[2..6]
-followers = users[3..5]
-following.each { |followed| user.follow(followed) }
-followers.each { |follower| follower.follow(user) }
+#users = User.all
+#user  = users.first
+#following = users[2..6]
+#followers = users[3..5]
+#following.each { |followed| user.follow(followed) }
+#followers.each { |follower| follower.follow(user) }

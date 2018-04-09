@@ -1,5 +1,5 @@
 class BusinessesController < ApplicationController
-  before_action :logged_in_user, only: [:index, :create]
+  #before_action :logged_in_user, only: [:index, :create]
   
     
   def index
@@ -32,6 +32,13 @@ class BusinessesController < ApplicationController
     #@reviews = @user.reviews.paginate(page: params[:page])
   end
 
+  def followerzs
+    @title = "Followerzs"
+    @business = Business.find(params[:id])
+    @businesses = @business.followerzs.paginate(page: params[:page])
+    render 'show_followz'
+  end
+
   def search
     @businesses = Business.search(params)
   end
@@ -43,11 +50,11 @@ class BusinessesController < ApplicationController
                                      :phone, :email, :description, :image)
   end
   
-  def logged_in_user
-    unless logged_in?
-      store_location
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-    end
-  end
+ # def logged_in_user
+  #  unless logged_in?
+   #   store_location
+    #    flash[:danger] = "Please log in."
+    #    redirect_to login_url
+  #  end
+  #end
 end

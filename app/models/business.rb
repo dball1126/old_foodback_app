@@ -1,4 +1,4 @@
-class Business < ActiveRecord::Base
+class Business < ApplicationRecord
   has_many   :experiences
   has_many   :reviews
   belongs_to :category, class_name: "Person", optional: true
@@ -6,13 +6,6 @@ class Business < ActiveRecord::Base
   validates_presence_of :description
   validates_presence_of :city
   validates_presence_of :state
-  belongs_to :followerz, class_name: "User", optional: true
-  belongs_to :followedz, class_name: "Business", optional: true
-  
-  has_many :active_relationshipzs, class_name: "Relationshipz",
-                                   foreign_key: "followerz_id",
-                                   dependent:   :destroy
-  has_many :followingz, through: :active_relationshipzs, source: :followedz
   
   has_many :passive_relationshipzs, class_name:  "Relationshipz",
                                    foreign_key: "followedz_id",
@@ -28,19 +21,19 @@ class Business < ActiveRecord::Base
   
   
   # Follows a Business.
-  def followz(other_business)
-    followingz << other_business
-  end
+#  def followz(other_business)
+#    followingz << other_business
+#  end
 
   # Unfollows a business.
-  def unfollowz(other_business)
-    followingz.delete(other_business)
-  end
+#  def unfollowz(other_business)
+#    followingz.delete(other_business)
+#  end
 
   # Returns true if the current user is following the other user.
-  def followingz?(other_business)
-    followingz.include?(other_business)
-  end
+#  def followingz?(other_business)
+#    followingz.include?(other_business)
+#  end
   
   
   

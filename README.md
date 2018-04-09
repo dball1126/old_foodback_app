@@ -69,3 +69,23 @@ trying to add timestamps to experiences
 
 
 working on timestamps for _experiences.erb still but now trying to still fox following users and businesses at the same time look at users controller business controller relationships and relationshipz
+
+
+
+just added: 
+belongs_to :followerz, class_name: "User", optional: true
+  belongs_to :followedz, class_name: "Business", optional: true
+  
+  just took out remote: true
+  
+  4/5/2018
+  
+  Still having major trouble following both businesses and users at the same time.  Lately I changed belongs_to over to has_many in model when compared to rumordom and the book
+  
+  
+  $("#followz_form").html("<%= escape_javascript(render('businesses/followz')) %>");
+$("#followerzs").html('<%= @business.followerzs.count %>');  
+
+changed @user and 's over to @business and now it works with remote forms
+
+Check routes.  Issue in routes.

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'businesses/new'
   get 'password_resets/new'
 
   get 'password_resets/edit'
@@ -16,21 +17,24 @@ Rails.application.routes.draw do
   
   resources :users do
     member do
-      get :following, :followers
+      get :following, :followers, :followingz 
     end
   end
   
-  resources :businesses do
-    member do
-      get :followingz, :followerz
-    end
-  end
+ # resources :businesses do
+    
+#  end
   
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
   resources :businesses do
+    
+    member do
+      get :followerzs
+    end
+    
     resources :experiences, except: [:index, :show]
-    collection do
+   collection do
       get 'search'
     end
   end

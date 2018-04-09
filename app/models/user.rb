@@ -1,10 +1,8 @@
 class User < ApplicationRecord
+
   attr_accessor :remember_token, :activation_token, :reset_token
   has_many :experiences
   has_many :reviews, dependent: :destroy
-  belongs_to :follower, class_name: "User", optional: true
-  belongs_to :followed, class_name: "User", optional: true
-  
   has_many :active_relationships, class_name:  "Relationship",
                                   foreign_key: "follower_id",
                                   dependent:   :destroy
@@ -14,15 +12,20 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
   
+  #belongs_to :follower, class_name: "User", optional: true
+  #belongs_to :followed, class_name: "User", optional: true
+  #belongs_to :followerz, class_name: "Business", optional: true
+  #belongs_to :followedz, class_name: "Business", optional: true
+  
+  
+  
+  
   has_many :active_relationshipzs, class_name: "Relationshipz",
-                                   foreign_key: "followerz_id",
-                                   dependent:   :destroy
+                                  foreign_key: "followerz_id",
+                                  dependent:   :destroy
   has_many :followingz, through: :active_relationshipzs, source: :followedz
   
-  has_many :passive_relationshipzs, class_name:  "Relationshipz",
-                                   foreign_key: "followedz_id",
-                                   dependent:   :destroy
-  has_many :followersz, through: :passive_relationshipzs, source: :followerz
+  
   
   
   before_save   :downcase_email
@@ -97,6 +100,7 @@ class User < ApplicationRecord
                      WHERE  follower_id = :user_id"
     Review.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
+    #Review.where("user_id IN (?) OR user_id = ?", following_ids, id)
     
     #followingz_ids = "SELECT followedz_id FROM relationshipsz
      #                WHERE  followerz_id = :business_id"
@@ -126,7 +130,8 @@ class User < ApplicationRecord
   
   # Follows a Business.
   def followz(other_business)
-    #followingz << other_business
+   # followingz << other_business
+    
     active_relationshipzs.create(followedz_id: other_business.id)
   end
 

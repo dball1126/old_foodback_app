@@ -1,7 +1,7 @@
-<%= form_for (@review) do |f| %>
+<%= form_for new_business_experience_path(@business) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new review..." %>
+    <%= f.text_area :comment, placeholder: "Compose new experience..." %>
   </div>
     <%= f.submit "Post", class: "btn btn-primary" %>
     <span class="picture">

@@ -14,13 +14,12 @@
   <div class="col-md-8">
    
     <%= render 'follow_form' if logged_in? %>
-    <% if @user.reviews.any? %>
-      <h3>Reviews (<%= @user.reviews.count %>)</h3>
-      <ol class="reviews">
-        <%= render @reviews %>
-        
+    <% if @user.experiences.any? %>
+      <h3>Experiences (<%= @user.experiences.count %>)</h3>
+      <ol class="experiences">
+        <%= render @experiences %>
       </ol>
-      <%= will_paginate @reviews %>
+      <%= will_paginate @experiences %>
       
     <% end %> 
   </div>

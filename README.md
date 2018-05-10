@@ -89,3 +89,27 @@ $("#followerzs").html('<%= @business.followerzs.count %>');
 changed @user and 's over to @business and now it works with remote forms
 
 Check routes.  Issue in routes.
+
+
+
+app view static pages home   review feed     the feed is not working
+
+
+just finished experiences
+
+Fixed following.  
+Somewhat fixed the feed....Try changing Experience to Review (top one in user model)
+
+
+check app controllers businesses controllers
+
+
+Must Fix current_user   4 28 18
+
+check businesses not users start at 13.3.5
+
+i need to add :picture to the experience database and create and change the table
+need to reset database just added :picture to it
+
+
+need to fix experience page.

@@ -1,16 +1,17 @@
 class ReviewsController < ApplicationController
   before_action :logged_in_user, only: [:create, :destroy]
-  #before_action :set_businessz
+  before_action :correct_user,   only: :destroy
+  before_action :set_businessz
   
-  def new
-    @review = Review.new(business: @business)
-  end
+  #def new
+  #  @review = Review.new(business: @business)
+  #end
   
   def create
     @review = current_user.reviews.build(review_params)   
-    @review.business = @business
+    #@review.business = @business
     #@business.save
-    @review.save
+    #@review.save
     if @review.save
     flash[:success] = "Review created!"
      
@@ -23,7 +24,7 @@ class ReviewsController < ApplicationController
   
   def destroy
     @review.destroy
-    flash[:sucess] = "Review deleted"
+    flash[:success] = "Review deleted"
     redirect_to request.referrer || root_url
   end
   

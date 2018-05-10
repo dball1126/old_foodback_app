@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   get  '/about',   to: 'static_pages#about'
   get  '/contact', to: 'static_pages#contact'
   get  '/signup',  to: 'users#new'
-  
+  #post '/newexp',  to: 'experiences#create'
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  get '/user_feed',  to: 'static_pages#user_feed'
   
   resources :users do
     member do
@@ -27,19 +28,20 @@ Rails.application.routes.draw do
   
   resources :account_activations, only: [:edit]
   resources :password_resets,     only: [:new, :create, :edit, :update]
+  
   resources :businesses do
     
     member do
       get :followerzs
-    end
     
-    resources :experiences, except: [:index, :show]
-   collection do
-      get 'search'
-    end
   end
-
-
+    resources :experiences, except: [:index, :show]
+   #collection do
+   #end
+  end
+  
+  # added resources experiences create destrory  4 25 2018
+  resources :experiences,     only:   [:create, :destroy]
   resources :reviews,         only:   [:create, :destroy]
   resources :relationships,   only:   [:create, :destroy]
   resources :relationshipzs,  only:   [:create, :destroy]

@@ -1,7 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user, :class_name => "User"
   belongs_to :business, :class_name => "User", optional: true
-  #validates :user_id, presence: true
+  validates :user_id, presence: true
   #validates :business_id, presence: true
   #validates :content, presence: true, length: { maximum: 500 }
   default_scope -> { order(created_at: :desc) }

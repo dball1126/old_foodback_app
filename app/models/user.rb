@@ -95,18 +95,28 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
   
-  def feed
-    following_ids = "SELECT followed_id FROM relationships
-                     WHERE  follower_id = :user_id"
-    Review.where("user_id IN (#{following_ids})
-                     OR user_id = :user_id", user_id: id)
-    #Review.where("user_id IN (?) OR user_id = ?", following_ids, id)
+  def feedz
     
-    #followingz_ids = "SELECT followedz_id FROM relationshipsz
-     #                WHERE  followerz_id = :business_id"
-   Experience.where("business_id IN (?) OR business_id = ?", followingz_ids, id)
-   #Experience.where("business_id IN (#{followingz_ids})
-    #                 OR user_id = :user_id", user_id: id)                 
+  following_ids = "SELECT followed_id FROM relationships
+                     WHERE  follower_id = :user_id"
+   
+            
+
+     Experience.where("user_id IN (#{following_ids})
+                     OR user_id = :user_id", user_id: id)
+  end
+  
+  def feed
+    
+    followingz_ids = "SELECT followedz_id FROM relationshipzs
+                     WHERE  followerz_id = :business_id"
+                     
+                     
+   Experience.where("business_id IN (#{followingz_ids})
+                     OR business_id = :business_id", business_id: id)
+
+   
+               
   end
   
   # Follows a user.

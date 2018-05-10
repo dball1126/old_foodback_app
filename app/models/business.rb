@@ -34,7 +34,7 @@ class Business < ApplicationRecord
 #  def followingz?(other_business)
 #    followingz.include?(other_business)
 #  end
-  
+ 
   
   
   def full_address

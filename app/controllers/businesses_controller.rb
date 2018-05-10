@@ -1,5 +1,5 @@
 class BusinessesController < ApplicationController
-  #before_action :logged_in_user, only: [:index, :create]
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   
     
   def index
@@ -8,6 +8,7 @@ class BusinessesController < ApplicationController
 
   def new
     @business = Business.new
+    #@experience = Experience.new
   end
 
   def create
@@ -49,6 +50,16 @@ class BusinessesController < ApplicationController
     params.require(:business).permit(:name, :city, :state, :zipcode,                                      :address1, :address2, :category_id, 
                                      :phone, :email, :description, :image)
   end
+  # added correct user admin user for business 4 29 18
+  def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
+    end
+
+    # Confirms an admin user.
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
+    end
   
  # def logged_in_user
   #  unless logged_in?

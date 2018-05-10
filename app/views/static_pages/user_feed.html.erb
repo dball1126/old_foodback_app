@@ -1,5 +1,4 @@
 <h1>Welcome to Foodback</h1>
-<%= link_to "Create a Business", businesses_new_path, class: "btn btn-lg btn-primary" %>
 <% if logged_in? %>
   <div class="row">
     <aside class="col-md-4">
@@ -10,12 +9,12 @@
         <%= render 'shared/stats' %>
       </section>
       
+
     </aside>
     <div class="col-md-8">
-      <h3>Experience Feed(Businesses) <%= link_to "Users", user_feed_path, class: "btn btn-lg btn-primary" %></h3>
+      <h3>Experience Feed(Users) <%= link_to "Businesses", root_url, class: "btn btn-lg btn-primary" %></h3>
       
-      <%= render 'shared/feed' %>
-      
+      <%= render 'shared/feedz' %>
     </div>
   </div>
 <% else %>

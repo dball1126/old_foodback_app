@@ -1,7 +1,7 @@
 class Business < ApplicationRecord
   has_many   :experiences
   has_many   :reviews
-  belongs_to :category, class_name: "Person", optional: true
+  belongs_to :category #added 5 14 18, class_name: "Person", optional: true
   validates_presence_of :name
   validates_presence_of :description
   validates_presence_of :city
@@ -38,12 +38,12 @@ class Business < ApplicationRecord
   
   
   def full_address
-    [address1, address2, city, state, zipcode].join(', ')
+    [address1, city, state, zipcode].join(', ')
   end
   
   def self.search(params)
-    businesses = Business.where(category_id: params[:category].to_i)
-    businesses = businesses.where("name like ? or description like ?", "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
+    #businesses = Business.where(category_id: params[:category].to_i)
+  businesses = Business.where("name like ? or description like ?", "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
     businesses = businesses.near(params[:location], 20) if params[:location].present?
     businesses
   end

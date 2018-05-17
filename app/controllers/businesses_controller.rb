@@ -4,6 +4,11 @@ class BusinessesController < ApplicationController
     
   def index
     @businesses = Business.paginate(page: params[:business])
+   # if params[:search]
+  #    @businesses = Business.search(params[:search]).order("created_at DESC")
+   # else
+    #  @businesses = Business.all.order("created_at DESC")
+    #end
   end
 
   def new
@@ -24,6 +29,8 @@ class BusinessesController < ApplicationController
   end
 
   def show
+    
+      
     @business = Business.find(params[:id])
     #redirect_to root_url and return unless @user.activated?
     

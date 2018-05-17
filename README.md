@@ -113,3 +113,8 @@ need to reset database just added :picture to it
 
 
 need to fix experience page.
+
+
+up to line 19 on businesses show on youtube video 535  5 10 2018
+
+Trying to fix the search method for businesses

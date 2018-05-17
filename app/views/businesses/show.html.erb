@@ -32,14 +32,16 @@
          
       </h1>
       <br><p>
+        
         <br><%= @business.name %></br>
         <br><%= @business.address1 %></br>
         <br><%= @business.address2 %></br>
         <br><%= @business.city %>
             <%= @business.state %>,
-           <%= @business.zipcode %></br>
+            <%= @business.zipcode %></br>
         <br><%= @business.phone %></br>
         <br><%= @business.email %></br>
+        <br>Category: <%= Category.find(@business.category_id).name %></br>
       </br></p>
     </section>
   </aside>

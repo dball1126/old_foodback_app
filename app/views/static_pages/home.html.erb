@@ -29,7 +29,17 @@
     sample application.
   </h2>
   
-  
+  <div class="span4">
+    <div class="search-form">
+      <p>Find A Business</p>
+      <%= form_tag search_businesses_path, method: :get do |f| %>
+        <%= text_field_tag :search, nil, placeholder: "search for bussinesses, etc." %>
+        <%= text_field_tag :location, nil, placeholder: "new york, miami, etc." %>
+        
+        <%= submit_tag 'Search' %>
+      <% end %>
+    </div>
+  </div>
   
   <div>
   <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>

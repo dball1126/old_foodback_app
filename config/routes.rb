@@ -16,6 +16,14 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   get '/user_feed',  to: 'static_pages#user_feed'
   
+  #added 5 9 2018
+  resources :businesses do 
+    resources :experiences, except: [:index, :show]
+    collection do 
+      get 'search'
+    end
+  end
+  
   resources :users do
     member do
       get :following, :followers, :followingz 
@@ -45,5 +53,10 @@ Rails.application.routes.draw do
   resources :reviews,         only:   [:create, :destroy]
   resources :relationships,   only:   [:create, :destroy]
   resources :relationshipzs,  only:   [:create, :destroy]
+  
+  
+  
+  
+  
   
 end

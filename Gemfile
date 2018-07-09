@@ -13,10 +13,10 @@ gem 'coffee-rails', '4.2.2'
 gem 'jquery-rails', '4.3.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.7.0'
-gem 'geocoder'
+gem 'geocoder', '~> 1.4', '>= 1.4.9'
 gem 'carrierwave',             '1.2.2'
 gem 'mini_magick',             '4.7.0'
-
+gem 'gmaps4rails'
 group :development, :test do
   gem 'sqlite3', '1.3.13'
   gem 'byebug',  '9.0.6', platform: :mri
@@ -27,6 +27,9 @@ group :development do
   gem 'listen',                '3.0.8'
   gem 'spring',                '2.0.2'
   gem 'spring-watcher-listen', '2.0.1'
+  gem 'better_errors'
+  gem 'rails_layout'
+  gem 'binding_of_caller'
 end
 
 group :test do
@@ -43,3 +46,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'simple_form'

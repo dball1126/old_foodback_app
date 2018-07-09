@@ -9,6 +9,7 @@
       </h1>
     </section>
     
+    
     <section class="business_infos">
       <section class="statsz">
       <%= render 'shared/statsz' %>
@@ -21,16 +22,41 @@
         <% else %>
         <%= link_to image_tag("http://placehold.it/370x210"), @business %>
          <% end %>
-         <div class="span4">
-           <div class="widget map box-container padding30">
-             <h3 class="widget-title"> Map &amp; Directions></h3>
-             <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d96858.57720389868!2d<%= @business.longitude %>!3d<%= @business.latitude %>!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1519343914703" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-           </div>
-         </div>
-         
-         
-         
+         <div style='width: 800px;'>  
+  <div id="map" style='width: 800px; height: 400px;'></div>  
+</div>  
+
+<script type="text/javascript">  
+handler = Gmaps.build('Google');  
+handler.buildMap({ provider: { Zoom: 12}, internal: {id: 'map'}}, function(){  
+  markers = handler.addMarkers([  
+    {  
+      "lat": <%= @business.latitude %>,  
+      "lng": <%= @business.longitude %>,  
+      "picture": {  
+        "width":  32,  
+        "height": 32  
+      },  
+      "infowindow": "SJSU"  
+    }  
+  ]);  
+  handler.bounds.extendWith(markers);  
+  handler.fitMapToBounds();
+  handler.getMap().setZoom(19);
+});  
+</script>
       </h1>
+      <p>
+  <strong>Latitude:</strong>
+  <%= @business.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @business.longitude %>
+</p>
+      
+      
       <br><p>
         
         <br><%= @business.name %></br>

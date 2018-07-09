@@ -118,3 +118,7 @@ need to fix experience page.
 up to line 19 on businesses show on youtube video 535  5 10 2018
 
 Trying to fix the search method for businesses
+
+
+
+PLAN:1. Look at Organization.  Comment out the valid geocode and before save geocode and import records with coordinates.   2. uncomment the geocode and import records that need to be geocoded but only after speaking to Google about pricing.

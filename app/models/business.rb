@@ -12,7 +12,7 @@ class Business < ApplicationRecord
                                    dependent:   :destroy
   has_many :followerzs, through: :passive_relationshipzs, source: :followerz
   
-  
+  validates_presence_of :full_address
   geocoded_by :full_address
   after_validation :geocode
   
@@ -35,7 +35,11 @@ class Business < ApplicationRecord
 #    followingz.include?(other_business)
 #  end
  
-  
+    def self.import(file)
+     CSV.foreach(file.path, headers: true) do |row|
+     Business.create! row.to_hash
+     end
+    end
   
   def full_address
     [address1, city, state, zipcode].join(', ')

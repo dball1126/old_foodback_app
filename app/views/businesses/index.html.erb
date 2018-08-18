@@ -1,6 +1,18 @@
 <% provide(:title, 'All businesses') %>
 <h1>All businesses</h1>
+<%= form_tag import_businesses_path, multipart: true, class: 'form-inline' do %>
+  <div class="form-group">
+    <%= link_to "Export CSV", businesses_path(format: "csv"), class: 'btn btn-primary' %>
+  </div>
 
+  <div class="form-group">
+    <%= file_field_tag :file, class: '' %>
+  </div>
+  
+  <div class="form-group">
+    <%= submit_tag "Import CSV", class: 'btn btn-info' %>
+  </div>
+<% end %>
 <%= will_paginate %>
 
 <ul class="businesses">
@@ -9,13 +21,13 @@
 
 <%= will_paginate %>
 
-<div style='width: 800px;'>  
-  <div id="map" style='width: 800px; height: 400px;'></div>  
+<div style='width: 200px;'>  
+  <div id="map" style='width: 200px; height: 200px;'></div>  
 </div>  
 
 <script type="text/javascript">
       handler = Gmaps.build('Google');
-      handler.buildMap({ provider: { Zoom: 12 }, internal: {id: 'map'}}, function(){
+      handler.buildMap({ provider: { Zoom: 2 }, internal: {id: 'map'}}, function(){
       markers = handler.addMarkers(<%=raw @businesses_default.to_json %>);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();

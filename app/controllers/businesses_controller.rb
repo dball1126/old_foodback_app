@@ -1,16 +1,26 @@
 class BusinessesController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :set_business, only: [:show, :edit, :update, :destroy]
-    
+  
   def index
     load_businesses
     @businesses = Business.paginate(page: params[:page])
+    respond_to do |format|
+      format.html
+      format.csv { send_data @businesses.to_csv(['name', 'city', 'state', 'zipcode', 'address1', 'address2', 'category1_id', 'category2_id', 'category3_id', 'category1', 'category2', 'category3', 'phone', 'email', 'description', 'latitude', 'longitude', 'image']) }
+    end
    # if params[:search]
   #    @businesses = Business.search(params[:search]).order("created_at DESC")
    # else
     #  @businesses = Business.all.order("created_at DESC")
     #end
   end
+
+  def import
+    Business.import(params[:file])
+    redirect_to root_url, notice: "Businesses imported."
+  end
+
 
   def new
     @business = Business.new
@@ -126,7 +136,7 @@ class BusinessesController < ApplicationController
   end
   
   def business_params
-    params.require(:business).permit(:name, :city, :state, :zipcode,                                      :address1, :address2, :category_id, :phone, :email, :description, :latitude, :longitude, :image)
+    params.require(:business).permit(:name, :city, :state, :zipcode,                                      :address1, :address2, :category1_id, :category2_id, :category3_id, :category1, :category2, :category3, :phone, :email, :description, :latitude, :longitude, :image)
   end
   # added correct user admin user for business 4 29 18
   def correct_user

@@ -10,6 +10,9 @@ class InitialSchema < ActiveRecord::Migration[5.1]
       t.string :zipcode
       t.string :phone
       t.string :email
+      t.string :category1
+      t.string :category2
+      t.string :category3
       t.text   :description
     end
     

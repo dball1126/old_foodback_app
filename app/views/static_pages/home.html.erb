@@ -1,5 +1,3 @@
-<h1>Welcome to Foodback</h1>
-<%= link_to "Create a Business", businesses_new_path, class: "btn btn-lg btn-primary" %>
 <% if logged_in? %>
   <div class="row">
     <aside class="col-md-4">
@@ -9,7 +7,6 @@
       <section class="stats">
         <%= render 'shared/stats' %>
       </section>
-      
     </aside>
     <div class="col-md-8">
       <h3>Experience Feed(Businesses) <%= link_to "Users", user_feed_path, class: "btn btn-lg btn-primary" %></h3>
@@ -19,16 +16,10 @@
     </div>
   </div>
 <% else %>
-<div class="body-container">
-  <%= link_to image_tag("mobile-experience.jpg", :size => "390x270"), root_path %>
-</div>
-
-<h2>
-    This is the home page for the
-    <a href="http://www.railstutorial.org/">Ruby on Rails Tutorial</a>
-    sample application.
-  </h2>
-  
+<div class="opening">
+Welcome to Rumordom.  This website is about the experience you have when you
+visit or have an interaction with a business.  There are times when you interact with these businesses multiple times, and every single time you have a different experience.  This is why I created Rumordom.  Whether you have a small, big, short, or a long statement, but every experience matters.  Come here to document the experience you have had good, or bad...every single time.  Let them know...let the world know.  Remember it's not a review....it's an experience.
+  </div>
   <div class="span4">
     <div class="search-form">
       <p>Find A Business</p>

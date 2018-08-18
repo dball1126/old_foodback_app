@@ -21,12 +21,19 @@ ActiveRecord::Schema.define(version: 20180503041544) do
     t.string "zipcode"
     t.string "phone"
     t.string "email"
+    t.string "category1"
+    t.string "category2"
+    t.string "category3"
     t.text "description"
     t.float "latitude"
     t.float "longitude"
-    t.integer "category_id"
+    t.integer "category1_id"
+    t.integer "category2_id"
+    t.integer "category3_id"
     t.string "image"
-    t.index ["category_id"], name: "index_businesses_on_category_id"
+    t.index ["category1_id"], name: "index_businesses_on_category1_id"
+    t.index ["category2_id"], name: "index_businesses_on_category2_id"
+    t.index ["category3_id"], name: "index_businesses_on_category3_id"
   end
 
   create_table "categories", force: :cascade do |t|

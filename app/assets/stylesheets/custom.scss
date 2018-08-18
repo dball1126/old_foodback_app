@@ -12,7 +12,7 @@ body {
 }
 
 h1 { 
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
   letter-spacing: -2px;
   margin-bottom: -50px;
@@ -31,25 +31,41 @@ textarea {
 
 /*  Header   */
 
+.opening {
+  font-size: 1.5em;
+  padding: 50px 30px;
+}
+
 header.navbar {
-  background-color: #F8F9F9;
+  background-color: white;
+  height: 60px;
 }
 
 header ul {
-  
+color: #3cff6d;  
 text-align: center;
 word-spacing: 5px;
 list-style: none;
-background-color: #F8F9F9;
+background-color: #d451ff;
 margin-left: -60px;
    li{
-      background-color: #F8F9F9;
+      background-color: #8c1aff;
       margin-top: -70px;
       margin:0 auto; 
       display:inline; 
       word-spacing: 1px;
+      color: #3cff6d;
+      
     
 }
+}
+
+.links5 {
+  margin: 5px;
+  padding: 5px;
+  width: 30%;
+  font-size: 5em;
+  margin-right: 5em;
 }
 
 
@@ -63,9 +79,25 @@ margin-left: -60px;
     border: 1px solid #333;
  }
  
+ .myNavbarz   {
+    background-color: black;
+    color: #3cff6d;
+    border: 1px solid #333;
+    margin-top: -35px;
+    a {
+      color: white;
+      &:hover {
+        color: red;
+        &:dropdown {
+          color: blue;
+        }
+      }
+    }
+ }
+ 
  #links  {
   
-  color: black;
+  color: white;
   &:hover {
     color: red;
   }
@@ -73,6 +105,7 @@ margin-left: -60px;
 
 #links1 {
   float: left;
+  margin-top: -45px;
   margin-right: 10px;
   font-size: 1.7em;
   color: white;
@@ -87,9 +120,9 @@ margin-left: -60px;
 
 #links2 {
   float: left;
+  margin-top: -30px;
   margin-right: 10px;
   font-size: 1.7em;
-  color: black;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
@@ -279,7 +312,7 @@ aside {
     float: left;
     padding: 0 10px;
     border-left: 1px solid $gray-lighter;
-    color: gray;
+    color: black;
     &:first-child {
       padding-left: 0;
       border: 0;
@@ -589,3 +622,42 @@ span.picture {
   font-size: 1.5em;
   font-weight: bold;
 }
+
+.span2 {
+  width: 1000px;
+  margin: 20px auto;
+}
+
+.search-form {
+  position: relative;
+  padding: 5px 40px;
+  background: rgba( 50, 50, 50, 0.2);
+  border: 0px solid #dbdbdb;
+}
+
+.before-buttons {
+  width: 700px;
+}
+.buttons {
+  position: relative;
+  width: 200px;
+  padding: 6px 15px;
+  margin-left: 700px;
+  margin-top:  -45px;
+  background-color: transparent;
+  color: #207cca;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+.stats {
+  .btn-primary {
+    background-color: #8c1aff;
+    color: white;
+  }
+}
+
+.btn-primary {
+    background-color: #8c1aff;
+    color: white;
+  }

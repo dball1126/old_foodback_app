@@ -54,7 +54,9 @@ Rails.application.routes.draw do
   resources :relationships,   only:   [:create, :destroy]
   resources :relationshipzs,  only:   [:create, :destroy]
   
-  
+  resources :businesses do
+    collection { post :import }
+  end
   
   
   

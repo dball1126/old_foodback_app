@@ -235,7 +235,7 @@ GEM
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
     formatador (0.2.5)
-    geocoder (1.4.9)
+    geocoder (1.6.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     gmaps4rails (2.1.2)
@@ -417,7 +417,7 @@ DEPENDENCIES
   coffee-rails (= 4.2.2)
   faker (= 1.7.3)
   fog (= 1.42)
-  geocoder (~> 1.4, >= 1.4.9)
+  geocoder (~> 1.6)
   gmaps4rails
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
